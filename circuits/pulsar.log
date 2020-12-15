@@ -1,0 +1,63 @@
+Circuit: * C:\Users\rachidox\Home\github\pulsar\circuits\pulsar.asc
+
+WARNING: Less than two connections to node X1:TESTV+.  This node is used by V:X1:1.
+WARNING: Less than two connections to node X1:TESTCLK.  This node is used by V:X1:2.
+WARNING: Less than two connections to node X1:TESTPULSE.  This node is used by V:X1:3.
+WARNING: Less than two connections to node X2:TESTV+.  This node is used by V:X2:1.
+WARNING: Less than two connections to node X2:TESTCLK.  This node is used by V:X2:2.
+WARNING: Less than two connections to node X2:TESTPULSE.  This node is used by V:X2:3.
+WARNING: Less than two connections to node X3:TESTV+.  This node is used by V:X3:1.
+WARNING: Less than two connections to node X3:TESTCLK.  This node is used by V:X3:2.
+WARNING: Less than two connections to node X3:TESTPULSE.  This node is used by V:X3:3.
+WARNING: Less than two connections to node X4:TESTV+.  This node is used by V:X4:1.
+WARNING: Less than two connections to node X4:TESTCLK.  This node is used by V:X4:2.
+WARNING: Less than two connections to node X4:TESTPULSE.  This node is used by V:X4:3.
+WARNING: Less than two connections to node X5:TESTV+.  This node is used by V:X5:1.
+WARNING: Less than two connections to node X5:TESTCLK.  This node is used by V:X5:2.
+WARNING: Less than two connections to node X5:TESTPULSE.  This node is used by V:X5:3.
+WARNING: Less than two connections to node X6:TESTV+.  This node is used by V:X6:1.
+WARNING: Less than two connections to node X6:TESTCLK.  This node is used by V:X6:2.
+WARNING: Less than two connections to node X6:TESTPULSE.  This node is used by V:X6:3.
+WARNING: Less than two connections to node X7:TESTV+.  This node is used by V:X7:1.
+WARNING: Less than two connections to node X7:TESTCLK.  This node is used by V:X7:2.
+WARNING: Less than two connections to node X7:TESTPULSE.  This node is used by V:X7:3.
+WARNING: Less than two connections to node X8:TESTV+.  This node is used by V:X8:1.
+WARNING: Less than two connections to node X8:TESTCLK.  This node is used by V:X8:2.
+WARNING: Less than two connections to node X8:TESTPULSE.  This node is used by V:X8:3.
+WARNING: Less than two connections to node X9:TESTV+.  This node is used by V:X9:1.
+WARNING: Less than two connections to node X9:TESTCLK.  This node is used by V:X9:2.
+WARNING: Less than two connections to node X9:TESTPULSE.  This node is used by V:X9:3.
+WARNING: Less than two connections to node X10:TESTV+.  This node is used by V:X10:1.
+WARNING: Less than two connections to node X10:TESTCLK.  This node is used by V:X10:2.
+WARNING: Less than two connections to node X10:TESTPULSE.  This node is used by V:X10:3.
+WARNING: Less than two connections to node X11:TESTV+.  This node is used by V:X11:1.
+WARNING: Less than two connections to node X11:TESTCLK.  This node is used by V:X11:2.
+WARNING: Less than two connections to node X11:TESTPULSE.  This node is used by V:X11:3.
+WARNING: Less than two connections to node X12:TESTV+.  This node is used by V:X12:1.
+WARNING: Less than two connections to node X12:TESTCLK.  This node is used by V:X12:2.
+WARNING: Less than two connections to node X12:TESTPULSE.  This node is used by V:X12:3.
+WARNING: Less than two connections to node X13:TESTV+.  This node is used by V:X13:1.
+WARNING: Less than two connections to node X13:TESTCLK.  This node is used by V:X13:2.
+WARNING: Less than two connections to node X13:TESTPULSE.  This node is used by V:X13:3.
+Direct Newton iteration for .op point succeeded.
+Heightened Def Con from 0.003 ++++++to 0.003
+Heightened Def Con from 0.003 to 0.003
+
+Date: Tue Dec 15 18:46:03 2020
+Total elapsed time: 0.417 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 7280
+traniter = 7263
+tranpoints = 2890
+accept = 2226
+rejected = 672
+matrix size = 331
+fillins = 262
+solver = Normal
+Thread vector: 12.5/7.8[5] 13.9/4.8[5] 4.2/3.2[5] 1.1/3.1[1]  2592/500
+Matrix Compiler1: 34.03 KB object code size  11.6/6.3/[2.8]
+Matrix Compiler2: 30.84 KB object code size  5.2/5.9/[1.7]
+

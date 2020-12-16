@@ -1,5 +1,8 @@
 Circuit: * C:\Users\rachidox\Home\github\pulsar\circuits\pulsar.asc
 
+WARNING: Node AMPLIFIER2:N002 is floating.
+WARNING: Node AMPLIFIER1:N002 is floating.
+
 WARNING: Less than two connections to node X1:TESTV+.  This node is used by V:X1:1.
 WARNING: Less than two connections to node X1:TESTCLK.  This node is used by V:X1:2.
 WARNING: Less than two connections to node X1:TESTPULSE.  This node is used by V:X1:3.
@@ -33,33 +36,28 @@ WARNING: Less than two connections to node X10:TESTPULSE.  This node is used by 
 WARNING: Less than two connections to node X11:TESTV+.  This node is used by V:X11:1.
 WARNING: Less than two connections to node X11:TESTCLK.  This node is used by V:X11:2.
 WARNING: Less than two connections to node X11:TESTPULSE.  This node is used by V:X11:3.
-WARNING: Less than two connections to node X12:TESTV+.  This node is used by V:X12:1.
-WARNING: Less than two connections to node X12:TESTCLK.  This node is used by V:X12:2.
-WARNING: Less than two connections to node X12:TESTPULSE.  This node is used by V:X12:3.
 WARNING: Less than two connections to node X13:TESTV+.  This node is used by V:X13:1.
 WARNING: Less than two connections to node X13:TESTCLK.  This node is used by V:X13:2.
 WARNING: Less than two connections to node X13:TESTPULSE.  This node is used by V:X13:3.
 Direct Newton iteration for .op point succeeded.
-Heightened Def Con from 0.003 ++++++to 0.003
+Heightened Def Con from 0.003 ++to 0.003
 Heightened Def Con from 0.003 to 0.003
-Heightened Def Con from 0.01 ++++++to 0.01
-Heightened Def Con from 0.01 to 0.01
 
-Date: Tue Dec 15 19:02:31 2020
-Total elapsed time: 0.431 seconds.
+Date: Wed Dec 16 13:42:24 2020
+Total elapsed time: 0.462 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 4617
-traniter = 4600
-tranpoints = 2078
-accept = 1668
-rejected = 426
-matrix size = 331
-fillins = 262
+totiter = 11428
+traniter = 11411
+tranpoints = 3989
+accept = 3028
+rejected = 965
+matrix size = 330
+fillins = 290
 solver = Normal
-Thread vector: 12.5/6.6[5] 6.3/3.9[5] 2.2/4.1[1] 1.1/2.9[1]  2592/500
-Matrix Compiler1: 34.03 KB object code size  5.4/2.9/[1.4]
-Matrix Compiler2: 30.84 KB object code size  2.4/3.2/[1.6]
+Thread vector: 12.6/6.4[5] 6.4/3.8[5] 2.2/2.6[1] 1.1/2.0[1]  2592/500
+Matrix Compiler1: 36.54 KB object code size  6.3/3.5/[2.0]
+Matrix Compiler2: 31.38 KB object code size  2.4/3.2/[1.4]
 

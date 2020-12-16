@@ -1,0 +1,64 @@
+* C:\Users\rachidox\Home\github\pulsar\circuits\pulsar.asc
+V§Power_Supply V+ 0 5
+V§Channel_2 N003 0 PULSE(0 1m 3m 1u 1u 50u 100u 4)
+XX1 N004 N011 0 V+ N011 N005 d-flip-flop
+XX2 N005 N012 0 V+ N012 N006 d-flip-flop
+XX3 N006 N013 0 V+ N013 N007 d-flip-flop
+XX4 N007 N014 0 V+ N014 N008 d-flip-flop
+XX5 N002 N005 0 V+ NC_01 P0 d-flip-flop
+XX6 N002 N006 0 V+ NC_02 P1 d-flip-flop
+XX7 N002 N007 0 V+ NC_03 P2 d-flip-flop
+XX8 N008 N015 0 V+ N015 N009 d-flip-flop
+XX9 N002 N008 0 V+ NC_04 P3 d-flip-flop
+V§Channel_1 N001 0 PULSE(0 1m 10m 1u 1u 50u 100u 1)
+XX10 N009 N016 0 V+ N016 N010 d-flip-flop
+XX11 N002 N009 0 V+ NC_05 P4 d-flip-flop
+XX13 N002 N010 0 V+ NC_06 P5 d-flip-flop
+XAmplifier2 0 V+ N003 N004 voltage-amplifier
+XAmplifier1 0 V+ N001 N002 voltage-amplifier
+
+* block symbol definitions
+.subckt d-flip-flop E D G V+ !Q Q
+V1 TestV+ G 5
+V2 TestClk G PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+V3 TestPulse G PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+Q9 Q N001 G 0 2N3904
+Q10 !Q N002 G 0 2N3904
+R13 N001 !Q 47k
+R14 Q N002 47k
+D1 N002 N006 1N4148
+D2 N001 N005 1N4148
+R15 Q V+ 1k
+R16 !Q V+ 1k
+C1 !Q N001 39pf
+C2 N002 Q 39pf
+C3 N006 E 100pf
+C4 N005 E 100pf
+Q11 N003 N004 G 0 2N3904
+R17 N003 V+ 1k
+R18 D N004 100k
+R19 D N006 200k
+R20 N003 N005 200k
+.ends d-flip-flop
+
+.subckt voltage-amplifier Gnd V+ Vin Vout
+Q2 N003 N004 Gnd 0 2N3904
+Q3 N001 N003 N005 0 2N3904
+C4 N004 Vin 10µ
+C5 N002 N001 10µ
+R3 V+ N001 4.7k
+R6 V+ N003 4.7k
+R7 N005 N004 100k
+R8 N005 Gnd 4.7k
+C6 Gnd N005 10µ
+A1 N002 Gnd Gnd Gnd Gnd Gnd Vout Gnd BUF Ref=0.8 Vhigh=5
+.ends voltage-amplifier
+
+.model D D
+.lib C:\Users\rachidox\Documents\LTspiceXVII\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\rachidox\Documents\LTspiceXVII\lib\cmp\standard.bjt
+.tran 0 20m 0 1m
+.backanno
+.end

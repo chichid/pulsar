@@ -1,6 +1,6 @@
 * C:\Users\rachidox\Home\github\pulsar\circuits\pulsar.asc
 V§Power_Supply V+ 0 5
-V§Channel_2 N003 0 PULSE(0 1m 3m 1u 1u 50u 100u 4)
+V§Channel_2 N003 0 PULSE(0 1m 3m 1u 1u 50u 100u 2)
 XX1 N004 N011 0 V+ N011 N005 d-flip-flop
 XX2 N005 N012 0 V+ N012 N006 d-flip-flop
 XX3 N006 N013 0 V+ N013 N007 d-flip-flop
@@ -14,8 +14,8 @@ V§Channel_1 N001 0 PULSE(0 1m 10m 1u 1u 50u 100u 1)
 XX10 N009 N016 0 V+ N016 N010 d-flip-flop
 XX11 N002 N009 0 V+ NC_05 P4 d-flip-flop
 XX13 N002 N010 0 V+ NC_06 P5 d-flip-flop
-XAmplifier2 0 V+ N003 N004 voltage-amplifier
-XAmplifier1 0 V+ N001 N002 voltage-amplifier
+XChan2_Amplifier 0 V+ N003 N004 voltage-amplifier
+XChan1_Amplifier 0 V+ N001 N002 voltage-amplifier
 
 * block symbol definitions
 .subckt d-flip-flop E D G V+ !Q Q

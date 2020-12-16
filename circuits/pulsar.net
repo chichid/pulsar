@@ -1,64 +1,1188 @@
-* C:\Users\rachidox\Home\github\pulsar\circuits\pulsar.asc
-V§Power_Supply V+ 0 5
-V§Channel_2 N003 0 PULSE(0 1m 3m 1u 1u 50u 100u 2)
-XX1 N004 N011 0 V+ N011 N005 d-flip-flop
-XX2 N005 N012 0 V+ N012 N006 d-flip-flop
-XX3 N006 N013 0 V+ N013 N007 d-flip-flop
-XX4 N007 N014 0 V+ N014 N008 d-flip-flop
-XX5 N002 N005 0 V+ NC_01 P0 d-flip-flop
-XX6 N002 N006 0 V+ NC_02 P1 d-flip-flop
-XX7 N002 N007 0 V+ NC_03 P2 d-flip-flop
-XX8 N008 N015 0 V+ N015 N009 d-flip-flop
-XX9 N002 N008 0 V+ NC_04 P3 d-flip-flop
-V§Channel_1 N001 0 PULSE(0 1m 10m 1u 1u 50u 100u 1)
-XX10 N009 N016 0 V+ N016 N010 d-flip-flop
-XX11 N002 N009 0 V+ NC_05 P4 d-flip-flop
-XX13 N002 N010 0 V+ NC_06 P5 d-flip-flop
-XChan2_Amplifier 0 V+ N003 N004 voltage-amplifier
-XChan1_Amplifier 0 V+ N001 N002 voltage-amplifier
+Wire List
 
-* block symbol definitions
-.subckt d-flip-flop E D G V+ !Q Q
-V1 TestV+ G 5
-V2 TestClk G PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
-V3 TestPulse G PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
-Q9 Q N001 G 0 2N3904
-Q10 !Q N002 G 0 2N3904
-R13 N001 !Q 47k
-R14 Q N002 47k
-D1 N002 N006 1N4148
-D2 N001 N005 1N4148
-R15 Q V+ 1k
-R16 !Q V+ 1k
-C1 !Q N001 39pf
-C2 N002 Q 39pf
-C3 N006 E 100pf
-C4 N005 E 100pf
-Q11 N003 N004 G 0 2N3904
-R17 N003 V+ 1k
-R18 D N004 100k
-R19 D N006 200k
-R20 N003 N005 200k
-.ends d-flip-flop
+                                              Revised: Wednesday, December 16, 2020
+                                              Revision: A
+LINEAR TECHNOLOGY
 
-.subckt voltage-amplifier Gnd V+ Vin Vout
-Q2 N003 N004 Gnd 0 2N3904
-Q3 N001 N003 N005 0 2N3904
-C4 N004 Vin 10µ
-C5 N002 N001 10µ
-R3 V+ N001 4.7k
-R6 V+ N003 4.7k
-R7 N005 N004 100k
-R8 N005 Gnd 4.7k
-C6 Gnd N005 10µ
-A1 N002 Gnd Gnd Gnd Gnd Gnd Vout Gnd BUF Ref=0.8 Vhigh=5
-.ends voltage-amplifier
 
-.model D D
-.lib C:\Users\rachidox\Documents\LTspiceXVII\lib\cmp\standard.dio
-.model NPN NPN
-.model PNP PNP
-.lib C:\Users\rachidox\Documents\LTspiceXVII\lib\cmp\standard.bjt
-.tran 0 20m 0 1m
-.backanno
-.end
+
+
+
+
+<<< Component List >>>
+5                             Power_Supplyvoltage
+PULSE(0 1m 3m 1u 1u 50u 100u 32)Channel_2 signal
+5                             V:1:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:1:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:1:3     voltage
+2N3904                        Q:1:9     npn
+2N3904                        Q:1:10    npn
+47k                           R:1:13    res
+47k                           R:1:14    res
+1N4148                        D:1:1     diode
+1N4148                        D:1:2     diode
+1k                            R:1:15    res
+1k                            R:1:16    res
+39pf                          C:1:1     cap
+39pf                          C:1:2     cap
+100pf                         C:1:3     cap
+100pf                         C:1:4     cap
+2N3904                        Q:1:11    npn
+1k                            R:1:17    res
+100k                          R:1:18    res
+200k                          R:1:19    res
+200k                          R:1:20    res
+5                             V:2:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:2:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:2:3     voltage
+2N3904                        Q:2:9     npn
+2N3904                        Q:2:10    npn
+47k                           R:2:13    res
+47k                           R:2:14    res
+1N4148                        D:2:1     diode
+1N4148                        D:2:2     diode
+1k                            R:2:15    res
+1k                            R:2:16    res
+39pf                          C:2:1     cap
+39pf                          C:2:2     cap
+100pf                         C:2:3     cap
+100pf                         C:2:4     cap
+2N3904                        Q:2:11    npn
+1k                            R:2:17    res
+100k                          R:2:18    res
+200k                          R:2:19    res
+200k                          R:2:20    res
+5                             V:3:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:3:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:3:3     voltage
+2N3904                        Q:3:9     npn
+2N3904                        Q:3:10    npn
+47k                           R:3:13    res
+47k                           R:3:14    res
+1N4148                        D:3:1     diode
+1N4148                        D:3:2     diode
+1k                            R:3:15    res
+1k                            R:3:16    res
+39pf                          C:3:1     cap
+39pf                          C:3:2     cap
+100pf                         C:3:3     cap
+100pf                         C:3:4     cap
+2N3904                        Q:3:11    npn
+1k                            R:3:17    res
+100k                          R:3:18    res
+200k                          R:3:19    res
+200k                          R:3:20    res
+5                             V:4:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:4:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:4:3     voltage
+2N3904                        Q:4:9     npn
+2N3904                        Q:4:10    npn
+47k                           R:4:13    res
+47k                           R:4:14    res
+1N4148                        D:4:1     diode
+1N4148                        D:4:2     diode
+1k                            R:4:15    res
+1k                            R:4:16    res
+39pf                          C:4:1     cap
+39pf                          C:4:2     cap
+100pf                         C:4:3     cap
+100pf                         C:4:4     cap
+2N3904                        Q:4:11    npn
+1k                            R:4:17    res
+100k                          R:4:18    res
+200k                          R:4:19    res
+200k                          R:4:20    res
+5                             V:5:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:5:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:5:3     voltage
+2N3904                        Q:5:9     npn
+2N3904                        Q:5:10    npn
+47k                           R:5:13    res
+47k                           R:5:14    res
+1N4148                        D:5:1     diode
+1N4148                        D:5:2     diode
+1k                            R:5:15    res
+1k                            R:5:16    res
+39pf                          C:5:1     cap
+39pf                          C:5:2     cap
+100pf                         C:5:3     cap
+100pf                         C:5:4     cap
+2N3904                        Q:5:11    npn
+1k                            R:5:17    res
+100k                          R:5:18    res
+200k                          R:5:19    res
+200k                          R:5:20    res
+5                             V:6:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:6:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:6:3     voltage
+2N3904                        Q:6:9     npn
+2N3904                        Q:6:10    npn
+47k                           R:6:13    res
+47k                           R:6:14    res
+1N4148                        D:6:1     diode
+1N4148                        D:6:2     diode
+1k                            R:6:15    res
+1k                            R:6:16    res
+39pf                          C:6:1     cap
+39pf                          C:6:2     cap
+100pf                         C:6:3     cap
+100pf                         C:6:4     cap
+2N3904                        Q:6:11    npn
+1k                            R:6:17    res
+100k                          R:6:18    res
+200k                          R:6:19    res
+200k                          R:6:20    res
+5                             V:7:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:7:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:7:3     voltage
+2N3904                        Q:7:9     npn
+2N3904                        Q:7:10    npn
+47k                           R:7:13    res
+47k                           R:7:14    res
+1N4148                        D:7:1     diode
+1N4148                        D:7:2     diode
+1k                            R:7:15    res
+1k                            R:7:16    res
+39pf                          C:7:1     cap
+39pf                          C:7:2     cap
+100pf                         C:7:3     cap
+100pf                         C:7:4     cap
+2N3904                        Q:7:11    npn
+1k                            R:7:17    res
+100k                          R:7:18    res
+200k                          R:7:19    res
+200k                          R:7:20    res
+5                             V:8:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:8:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:8:3     voltage
+2N3904                        Q:8:9     npn
+2N3904                        Q:8:10    npn
+47k                           R:8:13    res
+47k                           R:8:14    res
+1N4148                        D:8:1     diode
+1N4148                        D:8:2     diode
+1k                            R:8:15    res
+1k                            R:8:16    res
+39pf                          C:8:1     cap
+39pf                          C:8:2     cap
+100pf                         C:8:3     cap
+100pf                         C:8:4     cap
+2N3904                        Q:8:11    npn
+1k                            R:8:17    res
+100k                          R:8:18    res
+200k                          R:8:19    res
+200k                          R:8:20    res
+5                             V:9:1     voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:9:2     voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:9:3     voltage
+2N3904                        Q:9:9     npn
+2N3904                        Q:9:10    npn
+47k                           R:9:13    res
+47k                           R:9:14    res
+1N4148                        D:9:1     diode
+1N4148                        D:9:2     diode
+1k                            R:9:15    res
+1k                            R:9:16    res
+39pf                          C:9:1     cap
+39pf                          C:9:2     cap
+100pf                         C:9:3     cap
+100pf                         C:9:4     cap
+2N3904                        Q:9:11    npn
+1k                            R:9:17    res
+100k                          R:9:18    res
+200k                          R:9:19    res
+200k                          R:9:20    res
+PULSE(0 1m 10m 1u 1u 50u 100u 1)Channel_1 signal
+5                             V:10:1    voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:10:2    voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:10:3    voltage
+2N3904                        Q:10:9    npn
+2N3904                        Q:10:10   npn
+47k                           R:10:13   res
+47k                           R:10:14   res
+1N4148                        D:10:1    diode
+1N4148                        D:10:2    diode
+1k                            R:10:15   res
+1k                            R:10:16   res
+39pf                          C:10:1    cap
+39pf                          C:10:2    cap
+100pf                         C:10:3    cap
+100pf                         C:10:4    cap
+2N3904                        Q:10:11   npn
+1k                            R:10:17   res
+100k                          R:10:18   res
+200k                          R:10:19   res
+200k                          R:10:20   res
+5                             V:11:1    voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:11:2    voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:11:3    voltage
+2N3904                        Q:11:9    npn
+2N3904                        Q:11:10   npn
+47k                           R:11:13   res
+47k                           R:11:14   res
+1N4148                        D:11:1    diode
+1N4148                        D:11:2    diode
+1k                            R:11:15   res
+1k                            R:11:16   res
+39pf                          C:11:1    cap
+39pf                          C:11:2    cap
+100pf                         C:11:3    cap
+100pf                         C:11:4    cap
+2N3904                        Q:11:11   npn
+1k                            R:11:17   res
+100k                          R:11:18   res
+200k                          R:11:19   res
+200k                          R:11:20   res
+5                             V:13:1    voltage
+PULSE(0 5 0.25ms 100n 100n 25u 50u 10)V:13:2    voltage
+PULSE(0 5 0.25ms 1n 1n 25u 50u 1)V:13:3    voltage
+2N3904                        Q:13:9    npn
+2N3904                        Q:13:10   npn
+47k                           R:13:13   res
+47k                           R:13:14   res
+1N4148                        D:13:1    diode
+1N4148                        D:13:2    diode
+1k                            R:13:15   res
+1k                            R:13:16   res
+39pf                          C:13:1    cap
+39pf                          C:13:2    cap
+100pf                         C:13:3    cap
+100pf                         C:13:4    cap
+2N3904                        Q:13:11   npn
+1k                            R:13:17   res
+100k                          R:13:18   res
+200k                          R:13:19   res
+200k                          R:13:20   res
+2N3904                        Q:Chan2_Amplifier:2npn
+2N3904                        Q:Chan2_Amplifier:3npn
+10µ                           C:Chan2_Amplifier:4cap
+10µ                           C:Chan2_Amplifier:5cap
+4.7k                          R:Chan2_Amplifier:3res
+4.7k                          R:Chan2_Amplifier:6res
+100k                          R:Chan2_Amplifier:7res
+4.7k                          R:Chan2_Amplifier:8res
+10µ                           C:Chan2_Amplifier:6cap
+2N3904                        Q:Chan2_Amplifier:1npn
+4.7k                          R:Chan2_Amplifier:1res
+100k                          R:Chan2_Amplifier:2res
+2N3904                        Q:Chan2_Amplifier:4npn
+4.7k                          R:Chan2_Amplifier:4res
+100k                          R:Chan2_Amplifier:5res
+2N3904                        Q:Chan1_Amplifier:2npn
+2N3904                        Q:Chan1_Amplifier:3npn
+10µ                           C:Chan1_Amplifier:4cap
+10µ                           C:Chan1_Amplifier:5cap
+4.7k                          R:Chan1_Amplifier:3res
+4.7k                          R:Chan1_Amplifier:6res
+100k                          R:Chan1_Amplifier:7res
+4.7k                          R:Chan1_Amplifier:8res
+10µ                           C:Chan1_Amplifier:6cap
+2N3904                        Q:Chan1_Amplifier:1npn
+4.7k                          R:Chan1_Amplifier:1res
+100k                          R:Chan1_Amplifier:2res
+2N3904                        Q:Chan1_Amplifier:4npn
+4.7k                          R:Chan1_Amplifier:4res
+100k                          R:Chan1_Amplifier:5res
+
+<<< Wire List >>>
+
+  NODE  REFERENCE    PIN #   PIN NAME           PIN TYPE       PART VALUE
+
+[00001] V+
+        Power_Supply    1       +               Passive        5
+        R:1:15          2       B               Passive        1k
+        R:1:16          2       B               Passive        1k
+        R:1:17          2       B               Passive        1k
+        R:2:15          2       B               Passive        1k
+        R:2:16          2       B               Passive        1k
+        R:2:17          2       B               Passive        1k
+        R:3:15          2       B               Passive        1k
+        R:3:16          2       B               Passive        1k
+        R:3:17          2       B               Passive        1k
+        R:4:15          2       B               Passive        1k
+        R:4:16          2       B               Passive        1k
+        R:4:17          2       B               Passive        1k
+        R:5:15          2       B               Passive        1k
+        R:5:16          2       B               Passive        1k
+        R:5:17          2       B               Passive        1k
+        R:6:15          2       B               Passive        1k
+        R:6:16          2       B               Passive        1k
+        R:6:17          2       B               Passive        1k
+        R:7:15          2       B               Passive        1k
+        R:7:16          2       B               Passive        1k
+        R:7:17          2       B               Passive        1k
+        R:8:15          2       B               Passive        1k
+        R:8:16          2       B               Passive        1k
+        R:8:17          2       B               Passive        1k
+        R:9:15          2       B               Passive        1k
+        R:9:16          2       B               Passive        1k
+        R:9:17          2       B               Passive        1k
+        R:10:15         2       B               Passive        1k
+        R:10:16         2       B               Passive        1k
+        R:10:17         2       B               Passive        1k
+        R:11:15         2       B               Passive        1k
+        R:11:16         2       B               Passive        1k
+        R:11:17         2       B               Passive        1k
+        R:13:15         2       B               Passive        1k
+        R:13:16         2       B               Passive        1k
+        R:13:17         2       B               Passive        1k
+        R:Chan2_Amplifier:31       A               Passive        4.7k
+        R:Chan2_Amplifier:61       A               Passive        4.7k
+        R:Chan2_Amplifier:11       A               Passive        4.7k
+        R:Chan2_Amplifier:41       A               Passive        4.7k
+        R:Chan1_Amplifier:31       A               Passive        4.7k
+        R:Chan1_Amplifier:61       A               Passive        4.7k
+        R:Chan1_Amplifier:11       A               Passive        4.7k
+        R:Chan1_Amplifier:41       A               Passive        4.7k
+
+[00002] 0
+        Power_Supply    2       -               Passive        5
+        Channel_2       2       -               Passive        PULSE(0 1m 3m 1u 1u 50u 100u 32)
+        V:1:1           2       -               Passive        5
+        V:1:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:1:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:1:9           3       E               Passive        2N3904
+        Q:1:10          3       E               Passive        2N3904
+        Q:1:11          3       E               Passive        2N3904
+        V:2:1           2       -               Passive        5
+        V:2:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:2:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:2:9           3       E               Passive        2N3904
+        Q:2:10          3       E               Passive        2N3904
+        Q:2:11          3       E               Passive        2N3904
+        V:3:1           2       -               Passive        5
+        V:3:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:3:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:3:9           3       E               Passive        2N3904
+        Q:3:10          3       E               Passive        2N3904
+        Q:3:11          3       E               Passive        2N3904
+        V:4:1           2       -               Passive        5
+        V:4:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:4:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:4:9           3       E               Passive        2N3904
+        Q:4:10          3       E               Passive        2N3904
+        Q:4:11          3       E               Passive        2N3904
+        V:5:1           2       -               Passive        5
+        V:5:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:5:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:5:9           3       E               Passive        2N3904
+        Q:5:10          3       E               Passive        2N3904
+        Q:5:11          3       E               Passive        2N3904
+        V:6:1           2       -               Passive        5
+        V:6:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:6:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:6:9           3       E               Passive        2N3904
+        Q:6:10          3       E               Passive        2N3904
+        Q:6:11          3       E               Passive        2N3904
+        V:7:1           2       -               Passive        5
+        V:7:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:7:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:7:9           3       E               Passive        2N3904
+        Q:7:10          3       E               Passive        2N3904
+        Q:7:11          3       E               Passive        2N3904
+        V:8:1           2       -               Passive        5
+        V:8:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:8:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:8:9           3       E               Passive        2N3904
+        Q:8:10          3       E               Passive        2N3904
+        Q:8:11          3       E               Passive        2N3904
+        V:9:1           2       -               Passive        5
+        V:9:2           2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:9:3           2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:9:9           3       E               Passive        2N3904
+        Q:9:10          3       E               Passive        2N3904
+        Q:9:11          3       E               Passive        2N3904
+        Channel_1       2       -               Passive        PULSE(0 1m 10m 1u 1u 50u 100u 1)
+        V:10:1          2       -               Passive        5
+        V:10:2          2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:10:3          2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:10:9          3       E               Passive        2N3904
+        Q:10:10         3       E               Passive        2N3904
+        Q:10:11         3       E               Passive        2N3904
+        V:11:1          2       -               Passive        5
+        V:11:2          2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:11:3          2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:11:9          3       E               Passive        2N3904
+        Q:11:10         3       E               Passive        2N3904
+        Q:11:11         3       E               Passive        2N3904
+        V:13:1          2       -               Passive        5
+        V:13:2          2       -               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+        V:13:3          2       -               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+        Q:13:9          3       E               Passive        2N3904
+        Q:13:10         3       E               Passive        2N3904
+        Q:13:11         3       E               Passive        2N3904
+        Q:Chan2_Amplifier:23       E               Passive        2N3904
+        R:Chan2_Amplifier:82       B               Passive        4.7k
+        C:Chan2_Amplifier:61       A               Passive        10µ
+        Q:Chan2_Amplifier:13       E               Passive        2N3904
+        Q:Chan2_Amplifier:43       E               Passive        2N3904
+        Q:Chan1_Amplifier:23       E               Passive        2N3904
+        R:Chan1_Amplifier:82       B               Passive        4.7k
+        C:Chan1_Amplifier:61       A               Passive        10µ
+        Q:Chan1_Amplifier:13       E               Passive        2N3904
+        Q:Chan1_Amplifier:43       E               Passive        2N3904
+
+[00003] N003
+        Channel_2       1       +               Passive        PULSE(0 1m 3m 1u 1u 50u 100u 32)
+        C:Chan2_Amplifier:42       B               Passive        10µ
+
+[00004] 1:TestV+
+        V:1:1           1       +               Passive        5
+
+[00005] 1:TestClk
+        V:1:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00006] 1:TestPulse
+        V:1:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00007] N005
+        Q:1:9           1       C               Passive        2N3904
+        R:1:14          1       A               Passive        47k
+        R:1:15          1       A               Passive        1k
+        C:1:2           2       B               Passive        39pf
+        C:2:3           2       B               Passive        100pf
+        C:2:4           2       B               Passive        100pf
+        R:5:18          1       A               Passive        100k
+        R:5:19          1       A               Passive        200k
+
+[00008] 1:N001
+        Q:1:9           2       B               Passive        2N3904
+        R:1:13          1       A               Passive        47k
+        D:1:2           1       +               Passive        1N4148
+        C:1:1           2       B               Passive        39pf
+
+[00009] N011
+        Q:1:10          1       C               Passive        2N3904
+        R:1:13          2       B               Passive        47k
+        R:1:16          1       A               Passive        1k
+        C:1:1           1       A               Passive        39pf
+        R:1:18          1       A               Passive        100k
+        R:1:19          1       A               Passive        200k
+
+[00010] 1:N002
+        Q:1:10          2       B               Passive        2N3904
+        R:1:14          2       B               Passive        47k
+        D:1:1           1       +               Passive        1N4148
+        C:1:2           1       A               Passive        39pf
+
+[00011] 1:N006
+        D:1:1           2       -               Passive        1N4148
+        C:1:3           1       A               Passive        100pf
+        R:1:19          2       B               Passive        200k
+
+[00012] 1:N005
+        D:1:2           2       -               Passive        1N4148
+        C:1:4           1       A               Passive        100pf
+        R:1:20          2       B               Passive        200k
+
+[00013] N004
+        C:1:3           2       B               Passive        100pf
+        C:1:4           2       B               Passive        100pf
+        Q:Chan2_Amplifier:41       C               Passive        2N3904
+        R:Chan2_Amplifier:42       B               Passive        4.7k
+
+[00014] 1:N003
+        Q:1:11          1       C               Passive        2N3904
+        R:1:17          1       A               Passive        1k
+        R:1:20          1       A               Passive        200k
+
+[00015] 1:N004
+        Q:1:11          2       B               Passive        2N3904
+        R:1:18          2       B               Passive        100k
+
+[00016] 2:TestV+
+        V:2:1           1       +               Passive        5
+
+[00017] 2:TestClk
+        V:2:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00018] 2:TestPulse
+        V:2:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00019] N006
+        Q:2:9           1       C               Passive        2N3904
+        R:2:14          1       A               Passive        47k
+        R:2:15          1       A               Passive        1k
+        C:2:2           2       B               Passive        39pf
+        C:3:3           2       B               Passive        100pf
+        C:3:4           2       B               Passive        100pf
+        R:6:18          1       A               Passive        100k
+        R:6:19          1       A               Passive        200k
+
+[00020] 2:N001
+        Q:2:9           2       B               Passive        2N3904
+        R:2:13          1       A               Passive        47k
+        D:2:2           1       +               Passive        1N4148
+        C:2:1           2       B               Passive        39pf
+
+[00021] N012
+        Q:2:10          1       C               Passive        2N3904
+        R:2:13          2       B               Passive        47k
+        R:2:16          1       A               Passive        1k
+        C:2:1           1       A               Passive        39pf
+        R:2:18          1       A               Passive        100k
+        R:2:19          1       A               Passive        200k
+
+[00022] 2:N002
+        Q:2:10          2       B               Passive        2N3904
+        R:2:14          2       B               Passive        47k
+        D:2:1           1       +               Passive        1N4148
+        C:2:2           1       A               Passive        39pf
+
+[00023] 2:N006
+        D:2:1           2       -               Passive        1N4148
+        C:2:3           1       A               Passive        100pf
+        R:2:19          2       B               Passive        200k
+
+[00024] 2:N005
+        D:2:2           2       -               Passive        1N4148
+        C:2:4           1       A               Passive        100pf
+        R:2:20          2       B               Passive        200k
+
+[00025] 2:N003
+        Q:2:11          1       C               Passive        2N3904
+        R:2:17          1       A               Passive        1k
+        R:2:20          1       A               Passive        200k
+
+[00026] 2:N004
+        Q:2:11          2       B               Passive        2N3904
+        R:2:18          2       B               Passive        100k
+
+[00027] 3:TestV+
+        V:3:1           1       +               Passive        5
+
+[00028] 3:TestClk
+        V:3:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00029] 3:TestPulse
+        V:3:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00030] N007
+        Q:3:9           1       C               Passive        2N3904
+        R:3:14          1       A               Passive        47k
+        R:3:15          1       A               Passive        1k
+        C:3:2           2       B               Passive        39pf
+        C:4:3           2       B               Passive        100pf
+        C:4:4           2       B               Passive        100pf
+        R:7:18          1       A               Passive        100k
+        R:7:19          1       A               Passive        200k
+
+[00031] 3:N001
+        Q:3:9           2       B               Passive        2N3904
+        R:3:13          1       A               Passive        47k
+        D:3:2           1       +               Passive        1N4148
+        C:3:1           2       B               Passive        39pf
+
+[00032] N013
+        Q:3:10          1       C               Passive        2N3904
+        R:3:13          2       B               Passive        47k
+        R:3:16          1       A               Passive        1k
+        C:3:1           1       A               Passive        39pf
+        R:3:18          1       A               Passive        100k
+        R:3:19          1       A               Passive        200k
+
+[00033] 3:N002
+        Q:3:10          2       B               Passive        2N3904
+        R:3:14          2       B               Passive        47k
+        D:3:1           1       +               Passive        1N4148
+        C:3:2           1       A               Passive        39pf
+
+[00034] 3:N006
+        D:3:1           2       -               Passive        1N4148
+        C:3:3           1       A               Passive        100pf
+        R:3:19          2       B               Passive        200k
+
+[00035] 3:N005
+        D:3:2           2       -               Passive        1N4148
+        C:3:4           1       A               Passive        100pf
+        R:3:20          2       B               Passive        200k
+
+[00036] 3:N003
+        Q:3:11          1       C               Passive        2N3904
+        R:3:17          1       A               Passive        1k
+        R:3:20          1       A               Passive        200k
+
+[00037] 3:N004
+        Q:3:11          2       B               Passive        2N3904
+        R:3:18          2       B               Passive        100k
+
+[00038] 4:TestV+
+        V:4:1           1       +               Passive        5
+
+[00039] 4:TestClk
+        V:4:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00040] 4:TestPulse
+        V:4:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00041] N008
+        Q:4:9           1       C               Passive        2N3904
+        R:4:14          1       A               Passive        47k
+        R:4:15          1       A               Passive        1k
+        C:4:2           2       B               Passive        39pf
+        C:8:3           2       B               Passive        100pf
+        C:8:4           2       B               Passive        100pf
+        R:9:18          1       A               Passive        100k
+        R:9:19          1       A               Passive        200k
+
+[00042] 4:N001
+        Q:4:9           2       B               Passive        2N3904
+        R:4:13          1       A               Passive        47k
+        D:4:2           1       +               Passive        1N4148
+        C:4:1           2       B               Passive        39pf
+
+[00043] N014
+        Q:4:10          1       C               Passive        2N3904
+        R:4:13          2       B               Passive        47k
+        R:4:16          1       A               Passive        1k
+        C:4:1           1       A               Passive        39pf
+        R:4:18          1       A               Passive        100k
+        R:4:19          1       A               Passive        200k
+
+[00044] 4:N002
+        Q:4:10          2       B               Passive        2N3904
+        R:4:14          2       B               Passive        47k
+        D:4:1           1       +               Passive        1N4148
+        C:4:2           1       A               Passive        39pf
+
+[00045] 4:N006
+        D:4:1           2       -               Passive        1N4148
+        C:4:3           1       A               Passive        100pf
+        R:4:19          2       B               Passive        200k
+
+[00046] 4:N005
+        D:4:2           2       -               Passive        1N4148
+        C:4:4           1       A               Passive        100pf
+        R:4:20          2       B               Passive        200k
+
+[00047] 4:N003
+        Q:4:11          1       C               Passive        2N3904
+        R:4:17          1       A               Passive        1k
+        R:4:20          1       A               Passive        200k
+
+[00048] 4:N004
+        Q:4:11          2       B               Passive        2N3904
+        R:4:18          2       B               Passive        100k
+
+[00049] 5:TestV+
+        V:5:1           1       +               Passive        5
+
+[00050] 5:TestClk
+        V:5:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00051] 5:TestPulse
+        V:5:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00052] P0
+        Q:5:9           1       C               Passive        2N3904
+        R:5:14          1       A               Passive        47k
+        R:5:15          1       A               Passive        1k
+        C:5:2           2       B               Passive        39pf
+
+[00053] 5:N001
+        Q:5:9           2       B               Passive        2N3904
+        R:5:13          1       A               Passive        47k
+        D:5:2           1       +               Passive        1N4148
+        C:5:1           2       B               Passive        39pf
+
+[00054] NC_01
+        Q:5:10          1       C               Passive        2N3904
+        R:5:13          2       B               Passive        47k
+        R:5:16          1       A               Passive        1k
+        C:5:1           1       A               Passive        39pf
+
+[00055] 5:N002
+        Q:5:10          2       B               Passive        2N3904
+        R:5:14          2       B               Passive        47k
+        D:5:1           1       +               Passive        1N4148
+        C:5:2           1       A               Passive        39pf
+
+[00056] 5:N006
+        D:5:1           2       -               Passive        1N4148
+        C:5:3           1       A               Passive        100pf
+        R:5:19          2       B               Passive        200k
+
+[00057] 5:N005
+        D:5:2           2       -               Passive        1N4148
+        C:5:4           1       A               Passive        100pf
+        R:5:20          2       B               Passive        200k
+
+[00058] N002
+        C:5:3           2       B               Passive        100pf
+        C:5:4           2       B               Passive        100pf
+        C:6:3           2       B               Passive        100pf
+        C:6:4           2       B               Passive        100pf
+        C:7:3           2       B               Passive        100pf
+        C:7:4           2       B               Passive        100pf
+        C:9:3           2       B               Passive        100pf
+        C:9:4           2       B               Passive        100pf
+        C:11:3          2       B               Passive        100pf
+        C:11:4          2       B               Passive        100pf
+        C:13:3          2       B               Passive        100pf
+        C:13:4          2       B               Passive        100pf
+        Q:Chan1_Amplifier:41       C               Passive        2N3904
+        R:Chan1_Amplifier:42       B               Passive        4.7k
+
+[00059] 5:N003
+        Q:5:11          1       C               Passive        2N3904
+        R:5:17          1       A               Passive        1k
+        R:5:20          1       A               Passive        200k
+
+[00060] 5:N004
+        Q:5:11          2       B               Passive        2N3904
+        R:5:18          2       B               Passive        100k
+
+[00061] 6:TestV+
+        V:6:1           1       +               Passive        5
+
+[00062] 6:TestClk
+        V:6:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00063] 6:TestPulse
+        V:6:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00064] P1
+        Q:6:9           1       C               Passive        2N3904
+        R:6:14          1       A               Passive        47k
+        R:6:15          1       A               Passive        1k
+        C:6:2           2       B               Passive        39pf
+
+[00065] 6:N001
+        Q:6:9           2       B               Passive        2N3904
+        R:6:13          1       A               Passive        47k
+        D:6:2           1       +               Passive        1N4148
+        C:6:1           2       B               Passive        39pf
+
+[00066] NC_02
+        Q:6:10          1       C               Passive        2N3904
+        R:6:13          2       B               Passive        47k
+        R:6:16          1       A               Passive        1k
+        C:6:1           1       A               Passive        39pf
+
+[00067] 6:N002
+        Q:6:10          2       B               Passive        2N3904
+        R:6:14          2       B               Passive        47k
+        D:6:1           1       +               Passive        1N4148
+        C:6:2           1       A               Passive        39pf
+
+[00068] 6:N006
+        D:6:1           2       -               Passive        1N4148
+        C:6:3           1       A               Passive        100pf
+        R:6:19          2       B               Passive        200k
+
+[00069] 6:N005
+        D:6:2           2       -               Passive        1N4148
+        C:6:4           1       A               Passive        100pf
+        R:6:20          2       B               Passive        200k
+
+[00070] 6:N003
+        Q:6:11          1       C               Passive        2N3904
+        R:6:17          1       A               Passive        1k
+        R:6:20          1       A               Passive        200k
+
+[00071] 6:N004
+        Q:6:11          2       B               Passive        2N3904
+        R:6:18          2       B               Passive        100k
+
+[00072] 7:TestV+
+        V:7:1           1       +               Passive        5
+
+[00073] 7:TestClk
+        V:7:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00074] 7:TestPulse
+        V:7:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00075] P2
+        Q:7:9           1       C               Passive        2N3904
+        R:7:14          1       A               Passive        47k
+        R:7:15          1       A               Passive        1k
+        C:7:2           2       B               Passive        39pf
+
+[00076] 7:N001
+        Q:7:9           2       B               Passive        2N3904
+        R:7:13          1       A               Passive        47k
+        D:7:2           1       +               Passive        1N4148
+        C:7:1           2       B               Passive        39pf
+
+[00077] NC_03
+        Q:7:10          1       C               Passive        2N3904
+        R:7:13          2       B               Passive        47k
+        R:7:16          1       A               Passive        1k
+        C:7:1           1       A               Passive        39pf
+
+[00078] 7:N002
+        Q:7:10          2       B               Passive        2N3904
+        R:7:14          2       B               Passive        47k
+        D:7:1           1       +               Passive        1N4148
+        C:7:2           1       A               Passive        39pf
+
+[00079] 7:N006
+        D:7:1           2       -               Passive        1N4148
+        C:7:3           1       A               Passive        100pf
+        R:7:19          2       B               Passive        200k
+
+[00080] 7:N005
+        D:7:2           2       -               Passive        1N4148
+        C:7:4           1       A               Passive        100pf
+        R:7:20          2       B               Passive        200k
+
+[00081] 7:N003
+        Q:7:11          1       C               Passive        2N3904
+        R:7:17          1       A               Passive        1k
+        R:7:20          1       A               Passive        200k
+
+[00082] 7:N004
+        Q:7:11          2       B               Passive        2N3904
+        R:7:18          2       B               Passive        100k
+
+[00083] 8:TestV+
+        V:8:1           1       +               Passive        5
+
+[00084] 8:TestClk
+        V:8:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00085] 8:TestPulse
+        V:8:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00086] N009
+        Q:8:9           1       C               Passive        2N3904
+        R:8:14          1       A               Passive        47k
+        R:8:15          1       A               Passive        1k
+        C:8:2           2       B               Passive        39pf
+        C:10:3          2       B               Passive        100pf
+        C:10:4          2       B               Passive        100pf
+        R:11:18         1       A               Passive        100k
+        R:11:19         1       A               Passive        200k
+
+[00087] 8:N001
+        Q:8:9           2       B               Passive        2N3904
+        R:8:13          1       A               Passive        47k
+        D:8:2           1       +               Passive        1N4148
+        C:8:1           2       B               Passive        39pf
+
+[00088] N015
+        Q:8:10          1       C               Passive        2N3904
+        R:8:13          2       B               Passive        47k
+        R:8:16          1       A               Passive        1k
+        C:8:1           1       A               Passive        39pf
+        R:8:18          1       A               Passive        100k
+        R:8:19          1       A               Passive        200k
+
+[00089] 8:N002
+        Q:8:10          2       B               Passive        2N3904
+        R:8:14          2       B               Passive        47k
+        D:8:1           1       +               Passive        1N4148
+        C:8:2           1       A               Passive        39pf
+
+[00090] 8:N006
+        D:8:1           2       -               Passive        1N4148
+        C:8:3           1       A               Passive        100pf
+        R:8:19          2       B               Passive        200k
+
+[00091] 8:N005
+        D:8:2           2       -               Passive        1N4148
+        C:8:4           1       A               Passive        100pf
+        R:8:20          2       B               Passive        200k
+
+[00092] 8:N003
+        Q:8:11          1       C               Passive        2N3904
+        R:8:17          1       A               Passive        1k
+        R:8:20          1       A               Passive        200k
+
+[00093] 8:N004
+        Q:8:11          2       B               Passive        2N3904
+        R:8:18          2       B               Passive        100k
+
+[00094] 9:TestV+
+        V:9:1           1       +               Passive        5
+
+[00095] 9:TestClk
+        V:9:2           1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00096] 9:TestPulse
+        V:9:3           1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00097] P3
+        Q:9:9           1       C               Passive        2N3904
+        R:9:14          1       A               Passive        47k
+        R:9:15          1       A               Passive        1k
+        C:9:2           2       B               Passive        39pf
+
+[00098] 9:N001
+        Q:9:9           2       B               Passive        2N3904
+        R:9:13          1       A               Passive        47k
+        D:9:2           1       +               Passive        1N4148
+        C:9:1           2       B               Passive        39pf
+
+[00099] NC_04
+        Q:9:10          1       C               Passive        2N3904
+        R:9:13          2       B               Passive        47k
+        R:9:16          1       A               Passive        1k
+        C:9:1           1       A               Passive        39pf
+
+[00100] 9:N002
+        Q:9:10          2       B               Passive        2N3904
+        R:9:14          2       B               Passive        47k
+        D:9:1           1       +               Passive        1N4148
+        C:9:2           1       A               Passive        39pf
+
+[00101] 9:N006
+        D:9:1           2       -               Passive        1N4148
+        C:9:3           1       A               Passive        100pf
+        R:9:19          2       B               Passive        200k
+
+[00102] 9:N005
+        D:9:2           2       -               Passive        1N4148
+        C:9:4           1       A               Passive        100pf
+        R:9:20          2       B               Passive        200k
+
+[00103] 9:N003
+        Q:9:11          1       C               Passive        2N3904
+        R:9:17          1       A               Passive        1k
+        R:9:20          1       A               Passive        200k
+
+[00104] 9:N004
+        Q:9:11          2       B               Passive        2N3904
+        R:9:18          2       B               Passive        100k
+
+[00105] N001
+        Channel_1       1       +               Passive        PULSE(0 1m 10m 1u 1u 50u 100u 1)
+        C:Chan1_Amplifier:42       B               Passive        10µ
+
+[00106] 10:TestV+
+        V:10:1          1       +               Passive        5
+
+[00107] 10:TestClk
+        V:10:2          1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00108] 10:TestPulse
+        V:10:3          1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00109] N010
+        Q:10:9          1       C               Passive        2N3904
+        R:10:14         1       A               Passive        47k
+        R:10:15         1       A               Passive        1k
+        C:10:2          2       B               Passive        39pf
+        R:13:18         1       A               Passive        100k
+        R:13:19         1       A               Passive        200k
+
+[00110] 10:N001
+        Q:10:9          2       B               Passive        2N3904
+        R:10:13         1       A               Passive        47k
+        D:10:2          1       +               Passive        1N4148
+        C:10:1          2       B               Passive        39pf
+
+[00111] N016
+        Q:10:10         1       C               Passive        2N3904
+        R:10:13         2       B               Passive        47k
+        R:10:16         1       A               Passive        1k
+        C:10:1          1       A               Passive        39pf
+        R:10:18         1       A               Passive        100k
+        R:10:19         1       A               Passive        200k
+
+[00112] 10:N002
+        Q:10:10         2       B               Passive        2N3904
+        R:10:14         2       B               Passive        47k
+        D:10:1          1       +               Passive        1N4148
+        C:10:2          1       A               Passive        39pf
+
+[00113] 10:N006
+        D:10:1          2       -               Passive        1N4148
+        C:10:3          1       A               Passive        100pf
+        R:10:19         2       B               Passive        200k
+
+[00114] 10:N005
+        D:10:2          2       -               Passive        1N4148
+        C:10:4          1       A               Passive        100pf
+        R:10:20         2       B               Passive        200k
+
+[00115] 10:N003
+        Q:10:11         1       C               Passive        2N3904
+        R:10:17         1       A               Passive        1k
+        R:10:20         1       A               Passive        200k
+
+[00116] 10:N004
+        Q:10:11         2       B               Passive        2N3904
+        R:10:18         2       B               Passive        100k
+
+[00117] 11:TestV+
+        V:11:1          1       +               Passive        5
+
+[00118] 11:TestClk
+        V:11:2          1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00119] 11:TestPulse
+        V:11:3          1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00120] P4
+        Q:11:9          1       C               Passive        2N3904
+        R:11:14         1       A               Passive        47k
+        R:11:15         1       A               Passive        1k
+        C:11:2          2       B               Passive        39pf
+
+[00121] 11:N001
+        Q:11:9          2       B               Passive        2N3904
+        R:11:13         1       A               Passive        47k
+        D:11:2          1       +               Passive        1N4148
+        C:11:1          2       B               Passive        39pf
+
+[00122] NC_05
+        Q:11:10         1       C               Passive        2N3904
+        R:11:13         2       B               Passive        47k
+        R:11:16         1       A               Passive        1k
+        C:11:1          1       A               Passive        39pf
+
+[00123] 11:N002
+        Q:11:10         2       B               Passive        2N3904
+        R:11:14         2       B               Passive        47k
+        D:11:1          1       +               Passive        1N4148
+        C:11:2          1       A               Passive        39pf
+
+[00124] 11:N006
+        D:11:1          2       -               Passive        1N4148
+        C:11:3          1       A               Passive        100pf
+        R:11:19         2       B               Passive        200k
+
+[00125] 11:N005
+        D:11:2          2       -               Passive        1N4148
+        C:11:4          1       A               Passive        100pf
+        R:11:20         2       B               Passive        200k
+
+[00126] 11:N003
+        Q:11:11         1       C               Passive        2N3904
+        R:11:17         1       A               Passive        1k
+        R:11:20         1       A               Passive        200k
+
+[00127] 11:N004
+        Q:11:11         2       B               Passive        2N3904
+        R:11:18         2       B               Passive        100k
+
+[00128] 13:TestV+
+        V:13:1          1       +               Passive        5
+
+[00129] 13:TestClk
+        V:13:2          1       +               Passive        PULSE(0 5 0.25ms 100n 100n 25u 50u 10)
+
+[00130] 13:TestPulse
+        V:13:3          1       +               Passive        PULSE(0 5 0.25ms 1n 1n 25u 50u 1)
+
+[00131] P5
+        Q:13:9          1       C               Passive        2N3904
+        R:13:14         1       A               Passive        47k
+        R:13:15         1       A               Passive        1k
+        C:13:2          2       B               Passive        39pf
+
+[00132] 13:N001
+        Q:13:9          2       B               Passive        2N3904
+        R:13:13         1       A               Passive        47k
+        D:13:2          1       +               Passive        1N4148
+        C:13:1          2       B               Passive        39pf
+
+[00133] NC_06
+        Q:13:10         1       C               Passive        2N3904
+        R:13:13         2       B               Passive        47k
+        R:13:16         1       A               Passive        1k
+        C:13:1          1       A               Passive        39pf
+
+[00134] 13:N002
+        Q:13:10         2       B               Passive        2N3904
+        R:13:14         2       B               Passive        47k
+        D:13:1          1       +               Passive        1N4148
+        C:13:2          1       A               Passive        39pf
+
+[00135] 13:N006
+        D:13:1          2       -               Passive        1N4148
+        C:13:3          1       A               Passive        100pf
+        R:13:19         2       B               Passive        200k
+
+[00136] 13:N005
+        D:13:2          2       -               Passive        1N4148
+        C:13:4          1       A               Passive        100pf
+        R:13:20         2       B               Passive        200k
+
+[00137] 13:N003
+        Q:13:11         1       C               Passive        2N3904
+        R:13:17         1       A               Passive        1k
+        R:13:20         1       A               Passive        200k
+
+[00138] 13:N004
+        Q:13:11         2       B               Passive        2N3904
+        R:13:18         2       B               Passive        100k
+
+[00139] Chan2_Amplifier:N005
+        Q:Chan2_Amplifier:21       C               Passive        2N3904
+        Q:Chan2_Amplifier:32       B               Passive        2N3904
+        R:Chan2_Amplifier:62       B               Passive        4.7k
+
+[00140] Chan2_Amplifier:N006
+        Q:Chan2_Amplifier:22       B               Passive        2N3904
+        C:Chan2_Amplifier:41       A               Passive        10µ
+        R:Chan2_Amplifier:72       B               Passive        100k
+
+[00141] Chan2_Amplifier:N002
+        Q:Chan2_Amplifier:31       C               Passive        2N3904
+        C:Chan2_Amplifier:52       B               Passive        10µ
+        R:Chan2_Amplifier:32       B               Passive        4.7k
+
+[00142] Chan2_Amplifier:N007
+        Q:Chan2_Amplifier:33       E               Passive        2N3904
+        R:Chan2_Amplifier:71       A               Passive        100k
+        R:Chan2_Amplifier:81       A               Passive        4.7k
+        C:Chan2_Amplifier:62       B               Passive        10µ
+
+[00143] Chan2_Amplifier:N003
+        C:Chan2_Amplifier:51       A               Passive        10µ
+        R:Chan2_Amplifier:22       B               Passive        100k
+
+[00144] Chan2_Amplifier:N001
+        Q:Chan2_Amplifier:11       C               Passive        2N3904
+        R:Chan2_Amplifier:12       B               Passive        4.7k
+        R:Chan2_Amplifier:52       B               Passive        100k
+
+[00145] Chan2_Amplifier:N004
+        Q:Chan2_Amplifier:12       B               Passive        2N3904
+        R:Chan2_Amplifier:21       A               Passive        100k
+
+[00146] Chan2_Amplifier:P001
+        Q:Chan2_Amplifier:42       B               Passive        2N3904
+        R:Chan2_Amplifier:51       A               Passive        100k
+
+[00147] Chan1_Amplifier:N005
+        Q:Chan1_Amplifier:21       C               Passive        2N3904
+        Q:Chan1_Amplifier:32       B               Passive        2N3904
+        R:Chan1_Amplifier:62       B               Passive        4.7k
+
+[00148] Chan1_Amplifier:N006
+        Q:Chan1_Amplifier:22       B               Passive        2N3904
+        C:Chan1_Amplifier:41       A               Passive        10µ
+        R:Chan1_Amplifier:72       B               Passive        100k
+
+[00149] Chan1_Amplifier:N002
+        Q:Chan1_Amplifier:31       C               Passive        2N3904
+        C:Chan1_Amplifier:52       B               Passive        10µ
+        R:Chan1_Amplifier:32       B               Passive        4.7k
+
+[00150] Chan1_Amplifier:N007
+        Q:Chan1_Amplifier:33       E               Passive        2N3904
+        R:Chan1_Amplifier:71       A               Passive        100k
+        R:Chan1_Amplifier:81       A               Passive        4.7k
+        C:Chan1_Amplifier:62       B               Passive        10µ
+
+[00151] Chan1_Amplifier:N003
+        C:Chan1_Amplifier:51       A               Passive        10µ
+        R:Chan1_Amplifier:22       B               Passive        100k
+
+[00152] Chan1_Amplifier:N001
+        Q:Chan1_Amplifier:11       C               Passive        2N3904
+        R:Chan1_Amplifier:12       B               Passive        4.7k
+        R:Chan1_Amplifier:52       B               Passive        100k
+
+[00153] Chan1_Amplifier:N004
+        Q:Chan1_Amplifier:12       B               Passive        2N3904
+        R:Chan1_Amplifier:21       A               Passive        100k
+
+[00154] Chan1_Amplifier:P001
+        Q:Chan1_Amplifier:42       B               Passive        2N3904
+        R:Chan1_Amplifier:51       A               Passive        100k
+

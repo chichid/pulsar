@@ -1,0 +1,65 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR01
+U 1 1 5FE0849A
+P 1300 3800
+F 0 "#PWR01" H 1300 3550 50  0001 C CNN
+F 1 "GND" H 1305 3627 50  0000 C CNN
+F 2 "" H 1300 3800 50  0001 C CNN
+F 3 "" H 1300 3800 50  0001 C CNN
+	1    1300 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 3800 1300 3700
+$Comp
+L Simulation_SPICE:VPULSE V1
+U 1 1 5FE079D6
+P 1300 3500
+F 0 "V1" H 1430 3591 50  0000 L CNN
+F 1 "VPULSE" H 1430 3500 50  0000 L CNN
+F 2 "" H 1300 3500 50  0001 C CNN
+F 3 "~" H 1300 3500 50  0001 C CNN
+F 4 "Y" H 1300 3500 50  0001 L CNN "Spice_Netlist_Enabled"
+F 5 "V" H 1300 3500 50  0001 L CNN "Spice_Primitive"
+F 6 "pulse(0 1 2n 2n 2n 50n 100n)" H 1430 3409 50  0000 L CNN "Spice_Model"
+	1    1300 3500
+	1    0    0    -1  
+$EndComp
+Text Label 1300 3200 0    50   ~ 0
+Chan1
+Wire Wire Line
+	1300 3200 1300 3300
+$Sheet
+S 3000 3000 800  300 
+U 5FDF8765
+F0 "Chan1 Amplifier" 50
+F1 "voltage_amplifier.sch" 50
+F2 "V+" I L 3000 3100 50 
+F3 "Vout" O R 3800 3100 50 
+F4 "Vin" I L 3000 3200 50 
+$EndSheet
+$Sheet
+S 3000 3600 800  300 
+U 5FE0EF26
+F0 "Chan2 Amplifier" 50
+F1 "voltage_amplifier.sch" 50
+F2 "V+" I L 3000 3700 50 
+F3 "Vout" O R 3800 3700 50 
+F4 "Vin" I L 3000 3800 50 
+$EndSheet
+$EndSCHEMATC

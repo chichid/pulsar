@@ -1,0 +1,11 @@
+{
+  "name": "pulsar",
+  "version": "1.0.0",
+  "description": "Use the audio jack to control things",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Rachid El Habbari",
+  "license": "ISC"
+}

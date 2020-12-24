@@ -288,7 +288,8 @@ at 12.06.2012 10:18:08</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.7" drill="0">
+<clearance class="0" value="1"/>
 </class>
 <class number="1" name="back" width="0" drill="0">
 </class>
